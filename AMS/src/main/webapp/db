@@ -1,0 +1,183 @@
+conn system/081102
+
+
+
+create user ams identified by ams;
+
+grant dba to ams;
+
+conn ams/ams
+
+create table admin
+(
+	emailid varchar2(50),
+	password varchar2(50),
+	otp varchar2(50)
+);
+
+
+insert into admin (emailid,password)values('admin@gmail.com','admin');
+
+commit;
+
+
+//
+create table student
+(
+	emailid varchar2(50),
+	password varchar2(50),
+	otp varchar2(50),
+	name varchar2(50),
+	fathername varchar2(50),
+	mothername varchar2(50),
+	regdno varchar2(50),
+	branch varchar2(50),
+	mobileno varchar2(50),
+	aadharno varchar2(50),
+	ssession varchar2(50),
+	semester varchar2(50),
+	permanent_landmark varchar2(50),
+    permanent_city varchar2(50),
+ 	permanent_district varchar2(50),
+	permanent_state varchar2(50),
+	permanent_country varchar2(50),
+	permanent_pin varchar2(50),
+	present_landmark varchar2(50),	
+	present_city varchar2(50),
+	present_district varchar2(50),
+	present_state varchar2(50),
+	present_country varchar2(50),
+	present_pin varchar2(50),
+	status varchar2(50),
+	gender varchar2(50),
+	photo varchar2(50),
+	dob varchar2(50),
+	blood_group varchar2(50)
+);
+
+
+//
+
+create table teacher
+(
+	emailid varchar2(50) primary key,
+	password varchar2(50),
+	otp varchar2(50),
+	name varchar2(50),
+	fathername varchar2(50),
+	mothername varchar2(50),
+	regdno varchar2(50),
+	mobileno varchar2(50),
+	aadharno varchar2(50),
+	permanent_landmark varchar2(50),
+    permanent_city varchar2(50),
+ 	permanent_district varchar2(50),
+	permanent_state varchar2(50),
+	permanent_country varchar2(50),
+	permanent_pin varchar2(50),
+	present_landmark varchar2(50),
+	present_city varchar2(50),
+	present_district varchar2(50),
+	present_state varchar2(50),
+	present_country varchar2(50),
+	present_pin varchar2(50),
+	status varchar2(50),
+	qualification varchar2(50),
+	gender varchar2(50),
+	department varchar2(50),
+	photo varchar2(50),
+	dob varchar2(50),
+	blood_group varchar2(50)
+);
+
+// 
+ create table studentfeedback
+    (
+       regdno varchar2(50),
+       emailid varchar2(50),
+       message varchar2(150)
+     );
+     
+ // 
+ create table teacherfeedback
+    (
+       regdno varchar2(50),
+       emailid varchar2(50),
+       message varchar2(150)
+     ); 
+     
+     
+     
+  // 
+  create table studentleave
+  (
+  		regdno varchar2(20),
+  		emailid varchar2(50),
+  		f varchar2(20),
+  		t varchar2(20),
+  		reason varchar2(100),
+  		status varchar2(15)
+  );
+  
+  
+  // 
+  create table teacherleave
+  (
+  		regdno varchar2(20),
+  		emailid varchar2(50),
+  		f varchar2(20),
+  		t varchar2(20),
+  		reason varchar2(100),
+  		status varchar2(15)
+  );
+  
+  create table contact
+(
+ name varchar2(50),
+ emailid varchar2(50),
+ message varchar2(200)
+);
+  create table studentattendence
+(
+	attendancedate varchar2(50),
+	branch varchar2(50),
+	semester varchar2(50),
+	subject varchar2(50),
+	emailid varchar2(50),
+	regdno varchar2(50),
+	status varchar2(4),
+	name varchar2(50)
+);
+
+-----------------------------
+
+create table ChatMessages 
+(
+	sender 		varchar2(50),
+	receiver 	varchar2(50),
+	message 	varchar2(500),
+	time 		timestamp,
+	status 		varchar2(1)
+);
+
+create table ChatStudent
+(
+	name 		varchar2(50),
+	emailid 		varchar2(50),
+	password 	varchar2(10),
+	status 		varchar2(1)
+);
+
+create table subject
+(
+	subject_id varchar2(50),
+	subject_name varchar2(50),
+	teacher_regdno varchar2(50),
+	semester varchar2(10),
+	branch varchar2(50)
+);
+
+
+
+select status from studentattendence where emailid='shuvamm1@gmail.com' and branch='CSE' and subject='OS' and semester='8th' and attendancedate='2019-03-22';
+select status from studentattendence where emailid='shuvamm1@gmail.com'  and subject='OS' and attendancedate='2019-03-22';
